@@ -10,6 +10,7 @@ export default class Login extends React.Component {
                     title="go to dash"
                     onPress={() => this.props.navigation.navigate('Dashboard')}
                 />
-            </View>);
+            </View>
+        );
     }
 }
