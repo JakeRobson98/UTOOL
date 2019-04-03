@@ -11,7 +11,7 @@ export default class Entry extends React.Component {
         />
         <Button
           title="signup"
-          onPress={() => this.props.navigation.navigate('SignUp')}
+          onPress={() => this.props.navigation.navigate('Signup')}
         />
        </View>
      );

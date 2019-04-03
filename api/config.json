@@ -1,0 +1,23 @@
+{
+ "development": {
+   "username": "taylor",
+   "password": "123123",
+   "database": "utool",
+   "host": "35.197.167.13",
+   "dialect": "mysql"
+ },
+ "test": {
+  "username": "taylor",
+  "password": "123123",
+  "database": "utool",
+  "host": "35.197.167.13",
+  "dialect": "mysql"
+ },
+ "production": {
+  "username": "taylor",
+  "password": "123123",
+  "database": "utool",
+  "host": "35.197.167.13",
+  "dialect": "mysql"
+ }
+}
