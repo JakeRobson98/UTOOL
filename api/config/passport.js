@@ -9,10 +9,10 @@ var db            = require("../models");
 
 passport.use(new LocalStrategy(
 
-  function(email, password, done) {
+  function(username, password, done) {
     db.user.findOne({
       where: {
-       email: email
+       email: username
       }
     }).then(function(dbUser) {
       if (!dbUser) {

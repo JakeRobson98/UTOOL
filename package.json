@@ -12,7 +12,7 @@
     "lodash": "4.17.11",
     "prop-types": "15.6.2",
     "react": "16.6.3",
-    "react-native": "0.58.3",
+    "react-native": "^0.59.3",
     "react-native-gesture-handler": "^1.0.15",
     "react-navigation": "^3.1.2",
     "react-redux": "6.0.0",
@@ -34,5 +34,10 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }
