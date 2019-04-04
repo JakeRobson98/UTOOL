@@ -3,39 +3,40 @@ import Entry from "../Screens/Entry/EntryScreen";
 import Login from "../Screens/Entry/LoginScreen";
 import Signup from "../Screens/Entry/SignupScreen";
 import Dashboard from "../Screens/Dashboard";
-import Tab1 from "../Screens/Tabs/Tab1";
-import Tab2 from "../Screens/Tabs/Tab2";
-import Tab3 from "../Screens/Tabs/Tab3";
-import Tab4 from "../Screens/Tabs/Tab4";
+import ListingScreen from "../Screens/Tabs/Listing/ListingScreen";
+import MessagingScreen from "../Screens/Tabs/Messaging/MessagingScreen";
+import BrowseScreen from "../Screens/Tabs/Browse/BrowseScreen";
+import ProfileScreen from "../Screens/Tabs/Profile/ProfileScreen";
 
-export const Tab1Nav = createStackNavigator({
-	Tab1: {
-		screen: Tab1,
-
+export const BrowseStack = createStackNavigator({
+	Browse: {
+		screen: BrowseScreen,
 	},
 });
 
-export const Tab2Nav = createStackNavigator({
-	Tab2: {
-		screen: Tab2,
-
+export const ProfileScreenStack = createStackNavigator({
+	Profile: {
+		screen: ProfileScreen,
 	},
 });
 
-export const Tab3Nav = createStackNavigator({
-	Tab3: {
-		screen: Tab3,
-
+export const ListingScreenStack = createStackNavigator({
+	Listing: {
+		screen: ListingScreen,
 	},
-	Tab4:{
-		screen: Tab4
-	}
+
+});
+export const MessagingScreenStack = createStackNavigator({
+	Messaging:{
+		screen: MessagingScreen,
+	},
 });
 
 export const bottomNavBar = createBottomTabNavigator({
-	Tab1: { screen: Tab1Nav},
-	Tab2: { screen: Tab2Nav },
-	Tab3: { screen: Tab3Nav }
+	Browse: { screen: BrowseStack},
+	Profile: { screen: ProfileScreenStack },
+	Listing: { screen: ListingScreenStack },
+	Messaging: { screen: MessagingScreenStack }
 });
 
 

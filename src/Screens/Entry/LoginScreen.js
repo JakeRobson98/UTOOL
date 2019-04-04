@@ -60,7 +60,7 @@ export default class Login extends React.Component {
                         value={this.state.password}
                     />
                 <Button style={styles.button} color={'#26547C'} title="Login!" onPress={this.handleLogin}/>
-    
+
                 </View>
             );
         }
