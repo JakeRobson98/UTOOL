@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { StyleSheet,ActivityIndicator, Button, TextInput, Text, View } from 'react-native';
-import { getUser } from './Actions/index';
+import { getUser } from './Actions';
 
 var styles = require('../../../resources/style');
 export default class Login extends React.Component {

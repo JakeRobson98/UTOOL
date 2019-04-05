@@ -1,7 +1,7 @@
 import { createStackNavigator, createBottomTabNavigator, createAppContainer } from "react-navigation";
 import Entry from "../Screens/Entry/EntryScreen";
 import Login from "../Screens/Entry/Login/LoginScreen";
-import Signup from "../Screens/Entry/SignupScreen";
+import Signup from "../Screens/Entry/Resgister/SignupScreen";
 import Dashboard from "../Screens/Dashboard";
 import ListingScreen from "../Screens/Tabs/Listing/ListingScreen";
 import MessagingScreen from "../Screens/Tabs/Messaging/MessagingScreen";

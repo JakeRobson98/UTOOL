@@ -4,7 +4,7 @@ import {
     FETCH_USER_FAILURE,
   } from './types';
   
-import { loginUser } from '../../../../api/index';
+import { loginUser } from '../../../../api';
 import LoginReducer from '../Reducers/LoginReducer';
   
   export const fetchUserSuccess = (payload) => {

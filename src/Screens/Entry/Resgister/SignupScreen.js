@@ -1,7 +1,8 @@
 
 import React from 'react'
 import { StyleSheet,ActivityIndicator, Button, TextInput, Text, View } from 'react-native';
-var styles = require('../../resources/style');
+var styles = require('../../../resources/style');
+import { register } from './Actions';
 
 export default class Signup extends React.Component {
     state = {
@@ -15,6 +16,7 @@ export default class Signup extends React.Component {
     handleSignup = () => {
         const { email, password } = this.state
         console.log(email + password)
+        register(email, password);
         this.props.navigation.navigate('Dashboard')
     }
     componentDidMount(){
