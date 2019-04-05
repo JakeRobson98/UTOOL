@@ -1,7 +1,9 @@
 
 import React from 'react'
 import { StyleSheet,ActivityIndicator, Button, TextInput, Text, View } from 'react-native';
-var styles = require('../../resources/style');
+import { getUser } from './Actions/index';
+
+var styles = require('../../../resources/style');
 export default class Login extends React.Component {
     state = {
         email: '',
@@ -13,6 +15,7 @@ export default class Login extends React.Component {
     }
     handleLogin = () => {
         const { email, password } = this.state
+        getUser(email)
         console.log(email + password)
         this.props.navigation.navigate('Dashboard')
     }
