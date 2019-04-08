@@ -15,7 +15,7 @@ export default class Login extends React.Component {
     }
     handleLogin = () => {
         const { email, password } = this.state
-        getUser(email)
+        getUser({email : email, password : password});
         console.log(email + password)
         this.props.navigation.navigate('Dashboard')
     }
