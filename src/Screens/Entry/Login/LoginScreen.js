@@ -1,10 +1,10 @@
-
 import React from 'react'
 import { StyleSheet,ActivityIndicator, Button, TextInput, Text, View } from 'react-native';
 import { getUser } from './Actions';
+import { connect } from 'react-redux';
 
 var styles = require('../../../resources/style');
-export default class Login extends React.Component {
+class Login extends React.Component {
     state = {
         email: '',
         password: '',
@@ -15,7 +15,7 @@ export default class Login extends React.Component {
     }
     handleLogin = () => {
         const { email, password } = this.state
-        getUser({username : email, password : password});
+        this.props.getUser({username : email, password : password});
         console.log(email + password)
         this.props.navigation.navigate('Dashboard')
     }
@@ -70,3 +70,16 @@ export default class Login extends React.Component {
        
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getUser: (user) => dispatch(getUser(user))
+    }
+}
+
+const mapStateToProps = state => {
+    const { isFetching } = state;
+    return { isFetching }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

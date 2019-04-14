@@ -3,8 +3,9 @@ import React from 'react'
 import { StyleSheet,ActivityIndicator, Button, TextInput, Text, View } from 'react-native';
 var styles = require('../../../resources/style');
 import { register } from './Actions';
+import { connect } from 'react-redux';
 
-export default class Signup extends React.Component {
+class Signup extends React.Component {
     state = {
         email: '',
         password: '',
@@ -16,7 +17,7 @@ export default class Signup extends React.Component {
     handleSignup = () => {
         const { email, password } = this.state
         console.log(email + password)
-        register(email, password);
+        this.props.register(email, password);
         this.props.navigation.navigate('Dashboard')
     }
     componentDidMount(){
@@ -69,3 +70,16 @@ export default class Signup extends React.Component {
         );
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        register: (email, password) => dispatch(register(email, password))
+    }
+}
+
+const mapStateToProps = state => {
+    const { isFetching } = state;
+    return { isFetching }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup);

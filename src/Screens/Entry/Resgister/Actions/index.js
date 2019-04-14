@@ -41,7 +41,13 @@ import registerReducer from '../Reducers/RegisterReducer';
     //       dispatch(POSTItemsFailure()) 
     //     });
     // }
-    registerUser(email,pass);
+    // registerUser(email,pass);
+
+    return dispatch => {
+      return registerUser(email, pass)
+        .then(res => { console.log('registered')})
+        .catch(err => console.log(err));
+    }
 
     // return dispatch => {
     //   registerUser(email,pass);

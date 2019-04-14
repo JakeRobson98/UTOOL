@@ -8,7 +8,6 @@ import { loginUser } from '../../../../api';
 import LoginReducer from '../Reducers/LoginReducer';
   
   export const fetchUserSuccess = (payload) => {
-    console.log('FETCH ITEMS SUCCESS!!');
   return {
     type: FETCH_USER_SUCCESS,
     payload
@@ -22,9 +21,10 @@ import LoginReducer from '../Reducers/LoginReducer';
     };
   }
 
-  export const fetchUserFailure = () => {
+  export const fetchUserFailure = (payload) => {
     return {
-      type: FETCH_USER_FAILURE
+      type: FETCH_USER_FAILURE,
+      payload
     };
   }
   
@@ -32,25 +32,17 @@ import LoginReducer from '../Reducers/LoginReducer';
   export const getUser = (email) => {
   
     console.log('calling fetch method!');
-  
-    // return dispatch => {
-    //   dispatch(fetchItemRequest());
-    //   return LoginReducer({}
-    //       console.log(items);
-    //       dispatch(fetchItemsSuccess(items.data));
-    //     }).catch((err) => {
-    //       console.log(err);
-    //       dispatch(fetchItemsFailure()) 
-    //     });
-    // }
-    console.log(loginUser(email))
 
     return dispatch => {
-      dispatch(loginUser(email));
-      console.log(loginUser(email))
-      return LoginReducer()
-          console.log(user);
-          dispatch(fetchUserSuccess(user.email));
-      }
+      dispatch(fetchUserRequest());
+       return loginUser(email)
+        .then(res => {
+          dispatch(fetchUserSuccess(res.data.token));
+        })
+        .catch(err => {
+          dispatch(fetchUserFailure(err));
+        });
+    }
+    
   }
 

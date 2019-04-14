@@ -6,7 +6,9 @@ import {
    
    const INITIAL_STATE = {
     isFetching: false,
-    user: {},
+    user: {
+        token: null
+    },
    }; 
    
    export default (state = INITIAL_STATE, action) => {
@@ -19,6 +21,8 @@ import {
       };
    
      case FETCH_USER_SUCCESS:
+     console.log('Fetch user success');
+     console.log(action.payload);
       return {
        ...state, 
        user: action.payload,
@@ -26,6 +30,7 @@ import {
       };
    
      case FETCH_USER_FAILURE:
+     console.log(action.payload);
       return { ...state, comments: [], isFetching: false};
       
      default:
