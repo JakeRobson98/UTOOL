@@ -6,23 +6,39 @@ import Dashboard from "../Screens/Dashboard";
 import ListingScreen from "../Screens/Tabs/Listing/ListingScreen";
 import MessagingScreen from "../Screens/Tabs/Messaging/MessagingScreen";
 import BrowseScreen from "../Screens/Tabs/Browse/BrowseScreen";
-import ProfileScreen from "../Screens/Tabs/Profile/ProfileScreen";
+import ProfileScreen from "../Screens/Profile/profile";
+import Details from '../Screens/Profile/details';
 
 export const BrowseStack = createStackNavigator({
 	Browse: {
 		screen: BrowseScreen,
+		navigationOptions: {
+			header: null
+		}
 	},
 });
 
 export const ProfileScreenStack = createStackNavigator({
 	Profile: {
 		screen: ProfileScreen,
+		navigationOptions: {
+			header: null
+		}
 	},
+	Details: {
+		screen: Details,
+		navigationOptions: {
+		}
+	}
+	,
 });
 
 export const ListingScreenStack = createStackNavigator({
 	Listing: {
 		screen: ListingScreen,
+		navigationOptions: {
+			header: null
+		}
 	},
 
 });
