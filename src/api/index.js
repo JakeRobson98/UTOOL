@@ -1,14 +1,13 @@
 import axios from 'axios';
 import { API_ENDPOINT } from './config';
 
-export const registerUser = (email, pass) => {
-  console.log(email + pass)
+export const registerUser = (user) => {
+  console.log(user)
+  //some reason username gets passes instead of email 
+  user.email = user.username
   var string = `${API_ENDPOINT}/main/register`
   console.log(string)
-  return axios.post(`${API_ENDPOINT}/main/register`, {
-    email: email,
-    password: pass
-  }).then(function (response) {
+  return axios.post(`${API_ENDPOINT}/main/register`, user).then(function (response) {
     console.log(response);
   })
     .catch(function (error) {

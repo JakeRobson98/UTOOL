@@ -9,17 +9,13 @@ module.exports = function(sequelize, DataTypes){
     autoIncrement: true,
     unique: true
   },
-  firstName:{
-    type: DataTypes.INTEGER,
-    allowNull: true
-  },
   lastName:{
-    type: DataTypes.INTEGER,
+    type: DataTypes.TEXT,
     allowNull: true
   },
   firstName:{
     type: DataTypes.TEXT,
-    allowNull: true
+    allowNull: false
   },
   email: {
     type: DataTypes.STRING,

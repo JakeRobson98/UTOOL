@@ -21,11 +21,16 @@ class Signup extends React.Component {
             this.setState({errorMessage : "Passwords do not match!"});
             return;
         }
+       // this.props.navigation.navigate('Register');
         //this.props.register(email, password);
-        this.props.navigation.navigate('Register',{
-            email: this.state.email,
-            password: this.state.password}
-        );
+        else{
+            console.log()
+            this.props.navigation.navigate('SignupPart2',{
+                email: this.state.email,
+                password: this.state.password}
+            );
+        }
+       
     }
     componentDidMount(){
         this.setState({isLoading : false});

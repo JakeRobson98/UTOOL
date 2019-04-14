@@ -27,7 +27,7 @@ import registerReducer from '../Reducers/RegisterReducer';
   }
   
   
-  export const register = (email,pass) => {
+  export const register = (user) => {
   
     console.log('calling POST method!');
     // return dispatch => {
@@ -43,7 +43,7 @@ import registerReducer from '../Reducers/RegisterReducer';
     // registerUser(email,pass);
 
     return dispatch => {
-      return registerUser(email, pass)
+      return registerUser(user)
         .then(res => { console.log('registered')})
         .catch(err => console.log(err));
     }

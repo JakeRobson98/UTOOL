@@ -5,11 +5,16 @@ var express   = require('express');
 var router    = express.Router();
 var jwt       = require('jsonwebtoken');
 
+
+
 router.post("/register", function(req, res) {
  db.user.create({
-   email: req.body.email,
-   password: req.body.password
- }).then(function(){
+  email: req.body.email,
+  password: req.body.password,
+  firstName: req.body.firstName,
+  lastName: req.body.lastName,
+  // dateofbirth: req.body.firstName
+}).then(function(){
    res.json({message: 'please login'});
  }).catch(function(err){
    console.log(err);

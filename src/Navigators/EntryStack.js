@@ -8,6 +8,7 @@ import MessagingScreen from "../Screens/Tabs/Messaging/MessagingScreen";
 import BrowseScreen from "../Screens/Tabs/Browse/BrowseScreen";
 import ProfileScreen from "../Screens/Profile/profile";
 import Details from '../Screens/Profile/details';
+import Register from "../Screens/Entry/Resgister/RegisterFormScreen";
 
 export const BrowseStack = createStackNavigator({
 	Browse: {
@@ -59,13 +60,15 @@ export const bottomNavBar = createBottomTabNavigator({
 export const AppStackNav = createStackNavigator({
 	Entry: {
 		screen: Entry,
-
 	},
 	Login: {
 		screen: Login,
 	},
 	Signup: {
 		screen: Signup,
+	},
+	SignupPart2: {
+		screen: Register,
 	},
 
 	Dashboard: {
