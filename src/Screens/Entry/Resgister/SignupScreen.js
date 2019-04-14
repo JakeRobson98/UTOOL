@@ -9,21 +9,26 @@ class Signup extends React.Component {
     state = {
         email: '',
         password: '',
+        confirmPassword: '',
         errorMessage: null,
         isLoading: true,
         titleText: 'Welcome to UTOOL!',
-        bodyText: 'We just some need personal information...'
+        bodyText: 'To begin please choose an email and password...'
     }
     handleSignup = () => {
         const { email, password } = this.state
-        console.log(email + password)
-        this.props.register(email, password);
-        this.props.navigation.navigate('Dashboard')
+        if(this.state.confirmPassword != this.state.password){
+            this.setState({errorMessage : "Passwords do not match!"});
+            return;
+        }
+        //this.props.register(email, password);
+        this.props.navigation.navigate('Register',{
+            email: this.state.email,
+            password: this.state.password}
+        );
     }
     componentDidMount(){
         this.setState({isLoading : false});
-        console.log(this.state)
-
     }
     render() {
         if(this.state.isLoading){
@@ -64,8 +69,17 @@ class Signup extends React.Component {
                     onChangeText={password => this.setState({ password })}
                     value={this.state.password}
                 />
+                 <TextInput
+                    secureTextEntry
+                    style={styles.textInput}
+                    autoCapitalize="none"
+                    placeholder="Confirm password"
+                    selectionColor={'#26547C'}
+                    placeholderTextColor={'#26547C'}
+                    onChangeText={confirmPassword => this.setState({ confirmPassword })}
+                    value={this.state.confirmPassword}
+                />
                 <Button style={styles.button} color={'#26547C'} title="Signup!" onPress={this.handleSignup}/>
-
             </View>
         );
     }
