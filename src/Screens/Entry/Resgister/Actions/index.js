@@ -14,7 +14,6 @@ import registerReducer from '../Reducers/RegisterReducer';
   };
   }
 
-
   export const POSTUserRequest = () => {
     return {
       type: POST_USER

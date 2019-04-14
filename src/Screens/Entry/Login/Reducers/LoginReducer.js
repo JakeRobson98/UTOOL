@@ -25,14 +25,16 @@ import {
      console.log(action.payload);
       return {
        ...state, 
-       user: action.payload,
+       user: {...state.user, token: action.payload},
        isFetching: false
       };
+      break;
    
      case FETCH_USER_FAILURE:
      console.log(action.payload);
       return { ...state, comments: [], isFetching: false};
-      
+      break;
+
      default:
      return state;
     }

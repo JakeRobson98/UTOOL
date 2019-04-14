@@ -23,7 +23,7 @@ class Login extends React.Component {
        this.setState({isLoading : false});
     }
     render() {
-        if(this.state.isLoading){
+        if(this.props.isFetching){
             return(
               <View style={{flex: 1, padding: 20}}>
                 <ActivityIndicator/>
@@ -78,8 +78,8 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = state => {
-    const { isFetching } = state;
-    return { isFetching }
+    const { isFetching, user } = state;
+    return { isFetching, user }
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

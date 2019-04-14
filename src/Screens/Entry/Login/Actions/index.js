@@ -37,9 +37,11 @@ import LoginReducer from '../Reducers/LoginReducer';
       dispatch(fetchUserRequest());
        return loginUser(email)
         .then(res => {
-          dispatch(fetchUserSuccess(res.data.token));
+          console.log(res);
+          dispatch(fetchUserSuccess(res.token));
         })
         .catch(err => {
+          console.log(err);
           dispatch(fetchUserFailure(err));
         });
     }

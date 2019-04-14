@@ -60,9 +60,6 @@ export const AppStackNav = createStackNavigator({
 	}
 });
 
-
-
-
 const AppContainer = createAppContainer(AppStackNav);
 
 export default AppContainer;
