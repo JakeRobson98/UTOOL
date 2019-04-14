@@ -18,11 +18,13 @@ router.post("/register", function(req, res) {
  });
 });
 
-router.post("/login", async(req, res, next) => {
-  passport.authenticate('local', async(err, user, info) => {
+router.post("/login" , async(req, res, next) => {
+  // console.log(req)
+  user = req.body;
+  console.log(user.email + user.password + " USER ");
+  passport.authenticate('localLogin', async(err, user, info) => {
     try {
       if(err || !user){
-        console.log(user);
         const error = new Error('An Error occured logging in');
         return next(error);
       }
@@ -41,6 +43,7 @@ router.post("/login", async(req, res, next) => {
       return next(error);
     }
   })(req, res, next);
+
 });
 
 module.exports = router;

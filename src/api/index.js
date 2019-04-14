@@ -25,7 +25,7 @@ export const loginUser = (user) => {
   return axios.post(`${API_ENDPOINT}/main/login`, user).then(function (response) {
     console.log(response);
   })
-    .catch(function (error) {
+  .catch(function (error) {
       console.log(error);
-    });
+  });
 }
