@@ -3,7 +3,10 @@ import Entry from "../Screens/Entry/EntryScreen";
 import Login from "../Screens/Entry/Login/LoginScreen";
 import Signup from "../Screens/Entry/Resgister/SignupScreen";
 import Dashboard from "../Screens/Dashboard";
+
 import ListingScreen from "../Screens/Tabs/Listing/ListingScreen";
+import NewListingScreen from "../Screens/Tabs/Listing/NewListingScreen";
+
 import MessagingScreen from "../Screens/Tabs/Messaging/MessagingScreen";
 import BrowseScreen from "../Screens/Tabs/Browse/BrowseScreen";
 import ProfileScreen from "../Screens/Profile/profile";
@@ -41,6 +44,11 @@ export const ListingScreenStack = createStackNavigator({
 			header: null
 		}
 	},
+	NewListing:{
+		screen: NewListingScreen,
+		navigationOptions: {
+		}
+	}
 
 });
 export const MessagingScreenStack = createStackNavigator({

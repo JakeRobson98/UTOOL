@@ -1,4 +1,4 @@
-var Sequelize = require('sequelize');
+var Sequelize = require('sequelize/types');
 
 var env       = process.env.NODE_ENV || 'development';
 var config    = require('../config.json')[env];
@@ -20,5 +20,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.user = require('./user')(sequelize, Sequelize);
+db.item = require('./items')(sequelize, Sequelize);
+
 
 module.exports = db;
