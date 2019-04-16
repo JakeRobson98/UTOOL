@@ -33,8 +33,8 @@ router.post("/items", function(req, res) {
  }).then(function(){
     res.json({message: 'item created'});
   }).catch(function(err){
-    console.log(err);
-    console.log(res);
+    // console.log(err);
+    // console.log(res);
     res.json(err);
   });
  });
