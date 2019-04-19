@@ -43,8 +43,8 @@ class ListingScreen extends React.Component {
                   <Card key={i}>
                     <View>
                       <Text>{u.Title}</Text>
-                      <Text>{u.Description}</Text>
-                      <Text>{u.price}</Text>
+                      <Text>{u.address}, Auckland</Text>
+                      <Text>From ${u.price} per day</Text>
                     </View>
                   </Card>
                 );
