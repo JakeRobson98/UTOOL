@@ -50,8 +50,10 @@ export const getItems = (item) => {
 }
 
 export const getItems2 = (ownerId) => {
-  return axios.get(`${API_ENDPOINT}/main/userItems`, ownerId).then(function(res) {
-    return response.data;
+  return axios.get(`${API_ENDPOINT}/main/userItems`, { params: {ownerId: 1}}).then(function(res) {
+    console.log('Get Items 2 api indx');
+    console.log(res);
+    return res.data;
   }).catch(function(err){
     console.log(err);
   })

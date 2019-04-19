@@ -59,9 +59,8 @@ router.post("/items", function(req, res) {
     where: {
       ownerId: 1
     }
-  }).then(function(res){
-    console.log(res[0]);
-    res.json({res})
+  }).then(function(items){
+    res.json({items: items})
   }).catch(function(err){
     res.json(err)
   })

@@ -1,12 +1,25 @@
-import {
-    FETCH_USER,
-    FETCH_USER_SUCCESS,
-    FETCH_USER_FAILURE,
-  } from './types';
+import * as types from './types';
   
 import { postItemApi, getItems2 } from '../../../../api';
-  
 
+export const fetchUserItemsSuccess = (items) => {
+  return {
+    type: types.FETCH_USER_ITEMS_SUCCESS,
+    payload: items
+  };
+}
+
+export const fetchUserItemsFailure = () => {
+  return {
+    type: types.FETCH_USER_ITEMS_FAILURE
+  };
+}
+
+export const fetchUserItems = () => {
+  return {
+    type: types.FETCH_USER_ITEMS
+  };
+}
 
 export const postItem = (item) => {
     console.log('calling fetch method!');
@@ -21,13 +34,16 @@ export const postItem = (item) => {
     }
 }
 
-export const getUseritems = (userId, userToken) => {
+export const getUseritems = (ownerId) => {
   console.log('Fetching user items from database');
   return dispatch => {
+    dispatch(fetchUserItems());
     return getItems2(ownerId)
       .then(res => {
-        console.log(res);
+        dispatch(fetchUserItemsSuccess(res))
+        // console.log(res);
       }).catch(err => {
+        dispatch(fetchUserItemsFailure());
         console.log(err);
       })
   }

@@ -1,8 +1,4 @@
-import { 
- FETCH_ITEM,
- FETCH_ITEM_SUCCESS,
- FETCH_ITEM_FAILURE,
-} from '../Actions/types';
+import * as types from '../Actions/types';
 
 const INITIAL_STATE = {
  isFetching: false,
@@ -12,23 +8,24 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
 
  switch(action.type) {
-  case FETCH_ITEM: 
+  case types.FETCH_USER_ITEMS: 
    return { 
     ...state, 
     isFetching: true
    };
+   break;
 
-  case FETCH_ITEM_SUCCESS:
+  case types.FETCH_USER_ITEMS_SUCCESS:
   console.log('Fetch ITEM success');
   console.log(action.payload);
    return {
     ...state, 
-    mylistings: [...state.mylistings, action.newItem],
+    mylistings: [...state.mylistings, action.payload.items],
     isFetching: false
    };
    break;
 
-  case FETCH_ITEM_FAILURE:
+  case types.FETCH_USER_ITEMS_FAILURE:
   console.log(action.payload);
    return { ...state, comments: [], isFetching: false};
    break;
