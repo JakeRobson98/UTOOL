@@ -8,8 +8,25 @@ module.exports = StyleSheet.create({
  container: {
   flex: 1,
   marginLeft: 30,
-  marginTop: 50,
+  marginTop: 80,
   marginRight: 30,
+ },
+ headerContainer: {
+  flex: 1.5,
+  marginTop: -70,
+  flexDirection: 'row',
+  justifyContent: 'space-between'
+ },
+ contentContainer: {
+  flex: 5,
+  backgroundColor: 'red'
+ },
+ addListingIcon: {
+  fontSize: 30,
+  color: 'black'
+ },
+ touchableAdd: {
+  color: 'pink'
  },
  textInput: {
     height: 40,
@@ -30,8 +47,8 @@ module.exports = StyleSheet.create({
  header: {
   fontSize: 30,
   color: '#000000',
-  paddingBottom: 20
-
+  paddingBottom: 20,
+  marginTop: 70
  },
  subHeading: {
   fontSize: 18,

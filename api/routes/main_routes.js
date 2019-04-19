@@ -5,8 +5,6 @@ var express   = require('express');
 var router    = express.Router();
 var jwt       = require('jsonwebtoken');
 
-
-
 router.post("/register", function(req, res) {
  db.user.create({
   email: req.body.email,
@@ -55,6 +53,19 @@ router.post("/items", function(req, res) {
   });
  });
 
+ router.get("/userItems", function(req, res) {
+  console.log('Fetching users items');
+  db.item.findAll({
+    where: {
+      ownerId: 1
+    }
+  }).then(function(res){
+    console.log(res[0]);
+    res.json({res})
+  }).catch(function(err){
+    res.json(err)
+  })
+ });
 
 router.post("/login" , async(req, res, next) => {
   // console.log(req)

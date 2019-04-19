@@ -21,8 +21,9 @@ class Register extends React.Component {
     }
     handleSignup = () => {
         const { email, password } = this.state
-        console.log(this.state)
-        this.state.dateOfBirth = this.state.dateOfBirth.split("-").reverse().join("-");
+        console.log('Date of birth');
+        console.log(this.state.dateOfBirth)
+        // this.state.dateOfBirth = this.state.dateOfBirth.split("-").reverse().join("-");
         this.props.register({
             username: this.state.email,
             password: this.state.password,

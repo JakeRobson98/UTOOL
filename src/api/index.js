@@ -32,7 +32,6 @@ export const postItemApi = (item) => {
   return axios.post(`${API_ENDPOINT}/main/items`, item).then(function (response) {
     console.log(response)
     return response.data;
-    
   })
   .catch(function (error) {
       console.log(error);
@@ -48,4 +47,12 @@ export const getItems = (item) => {
   .catch(function (error) {
       console.log(error);
   });
+}
+
+export const getItems2 = (ownerId) => {
+  return axios.get(`${API_ENDPOINT}/main/userItems`, ownerId).then(function(res) {
+    return response.data;
+  }).catch(function(err){
+    console.log(err);
+  })
 }

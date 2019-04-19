@@ -8,6 +8,10 @@ module.exports = function (sequelize, DataTypes) {
       autoIncrement: true,
       unique: true
     },
+    ownerId: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     Title: {
       type: DataTypes.STRING,
       allowNull: false

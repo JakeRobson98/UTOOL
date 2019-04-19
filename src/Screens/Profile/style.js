@@ -8,7 +8,7 @@ module.exports = StyleSheet.create({
  container: {
   flex: 1,
   marginLeft: 30,
-  marginTop: 50,
+  marginTop: 70,
   marginRight: 30
  },
  header: {
