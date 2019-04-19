@@ -39,6 +39,22 @@ router.post("/items", function(req, res) {
   });
  });
 
+ router.get("/items", function(req, res) {
+  console.log(req.body)
+  db.item.create({
+   Title: req.body.Title,
+   Description: req.body.Description,
+   address: req.body.address,
+   price: req.body.price
+ }).then(function(){
+    res.json({message: 'item created'});
+  }).catch(function(err){
+    // console.log(err);
+    // console.log(res);
+    res.json(err);
+  });
+ });
+
 
 router.post("/login" , async(req, res, next) => {
   // console.log(req)

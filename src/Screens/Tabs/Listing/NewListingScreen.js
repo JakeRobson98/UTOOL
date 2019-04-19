@@ -26,7 +26,8 @@ class NewListingScreen extends React.Component {
       Description: this.state.Description,
       address: this.state.address,
       price: this.state.price
-    })
+    });
+    alert("Added item!");
   }
   onChanged (text) {
     this.setState({

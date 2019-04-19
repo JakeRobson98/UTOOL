@@ -29,11 +29,21 @@ export const loginUser = (user) => {
 
 export const postItemApi = (item) => {
   console.log(item)
-  console.log(`${API_ENDPOINT}/main/login/${item}/`)
   return axios.post(`${API_ENDPOINT}/main/items`, item).then(function (response) {
     console.log(response)
     return response.data;
     
+  })
+  .catch(function (error) {
+      console.log(error);
+  });
+}
+
+export const getItems = (item) => {
+  console.log(item)
+  return axios.get(`${API_ENDPOINT}/main/items`, item).then(function (response) {
+    console.log(response)
+    return response.data;
   })
   .catch(function (error) {
       console.log(error);
