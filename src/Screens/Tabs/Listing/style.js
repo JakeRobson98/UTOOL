@@ -7,9 +7,9 @@ var {
 module.exports = StyleSheet.create({
  container: {
   flex: 1,
-  marginLeft: 30,
+  marginLeft: 10,
   marginTop: 80,
-  marginRight: 30,
+  marginRight: 10
  },
  headerContainer: {
   flex: 1.5,
@@ -19,11 +19,26 @@ module.exports = StyleSheet.create({
  },
  contentContainer: {
   flex: 5,
-  backgroundColor: 'red'
  },
  addListingIcon: {
   fontSize: 30,
   color: 'black'
+ },
+ itemCard: {
+  marginLeft: 2,
+  marginRight: 2
+ },
+ thumbnailImg: {  
+  width: 130,
+  height: 100,
+  padding: 10,
+  marginRight: 20
+ },
+ cardContent: {
+
+ },
+ cardContainer: {
+   flexDirection: 'row'
  },
  touchableAdd: {
   color: 'pink'

@@ -3,6 +3,7 @@ import {
   Button, 
   Text,
   View,
+  Image,
   TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { connect } from 'react-redux';
@@ -15,6 +16,10 @@ class ListingScreen extends React.Component {
   
   componentDidMount() {
     this.props.getUseritems(1);
+  }
+
+  _handleCardPressed = () => {
+    console.log('Card pressed on Listing Screen!');
   }
 
   render() {
@@ -35,22 +40,27 @@ class ListingScreen extends React.Component {
             <Text style={styles.header}>Listing</Text>
             <TouchableOpacity style={styles.touchableAdd} onPress={() => this.props.navigation.navigate('NewListing')}><Icon name="plus" size={30} color="black"/></TouchableOpacity>
           </View>
+          <View style={styles.contentContainer}>
             {
               this.props.items[0].map((u,i) => {
                 console.log('ITEM');
                 console.log(u.Title);
                 return (
-                  <Card key={i}>
-                    <View>
-                      <Text>{u.Title}</Text>
-                      <Text>{u.address}, Auckland</Text>
-                      <Text>From ${u.price} per day</Text>
-                    </View>
-                  </Card>
+                  <TouchableOpacity onPress={this._handleCardPressed}>
+                    <Card key={i}  containerStyle={styles.itemCard}>
+                      <View style={styles.cardContainer}>
+                        <Image style={styles.thumbnailImg}source={{uri: 'https://images.lowes.ca/img/p400/13248/654102630094.jpg'}}/>
+                        <View style={styles.cardContent}>
+                          <Text>{u.Title}</Text>
+                          <Text>{u.address}, Auckland</Text>
+                          <Text>From ${u.price} per day</Text>
+                        </View>
+                      </View>
+                    </Card>
+                  </TouchableOpacity>
                 );
               })
-            }  
-          <View style={styles.contentContainer}>
+            } 
             <Button title = 'new listing' onPress={() => this.props.navigation.navigate('NewListing')}></Button>
           </View>
         </View>
