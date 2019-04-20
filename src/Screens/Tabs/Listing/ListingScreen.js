@@ -46,8 +46,8 @@ class ListingScreen extends React.Component {
                 console.log('ITEM');
                 console.log(u.Title);
                 return (
-                  <TouchableOpacity onPress={this._handleCardPressed}>
-                    <Card key={i}  containerStyle={styles.itemCard}>
+                  <TouchableOpacity key={i} onPress={this._handleCardPressed}>
+                    <Card containerStyle={styles.itemCard}>
                       <View style={styles.cardContainer}>
                         <Image style={styles.thumbnailImg}source={{uri: 'https://images.lowes.ca/img/p400/13248/654102630094.jpg'}}/>
                         <View style={styles.cardContent}>
