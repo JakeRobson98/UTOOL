@@ -36,9 +36,8 @@ class NewListingScreen extends React.Component {
   }
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.containerNewListing}>
         <Text style={styles.header}>New Listing</Text>
-
         <View style={{ flex: 1, flexDirection: 'column', alignItems: "flex-start" }}>
           <Text style={styles.subHeading}>TItle:</Text>
           <TextInput

@@ -11,6 +11,12 @@ module.exports = StyleSheet.create({
   marginTop: 80,
   marginRight: 10
  },
+ containerNewListing: {
+  flex: 1,
+  marginLeft: 10,
+  marginTop: 0,
+  marginRight: 10
+ },
  headerContainer: {
   flex: 1.5,
   marginTop: -70,
@@ -47,7 +53,7 @@ module.exports = StyleSheet.create({
     height: 40,
     width: '90%',
     borderColor: 'gray',
-    borderWidth: 1,
+    borderBottomWidth: 1,
     marginTop: 8,
     color: '#26547C',
   },
@@ -55,7 +61,7 @@ module.exports = StyleSheet.create({
     height: 80,
     width: '90%',
     borderColor: 'gray',
-    borderWidth: 1,
+    borderBottomWidth: 1,
     marginTop: 8,
     color: '#26547C',
   },
@@ -82,5 +88,18 @@ module.exports = StyleSheet.create({
   paddingTop: 30,
   borderTopColor: '#e8e8e8',
   borderTopWidth: 1,
+ },
+ newListing: {
+  alignItems: 'center',
+  backgroundColor:'blue',
+  borderWidth:1,
+  borderColor: "white",
+  borderTopWidth: 1,
+  marginTop:10,
+  borderRadius: 20
+ },
+ newListingText:{
+  fontSize: 25,
+  color: 'white'
  }
 });

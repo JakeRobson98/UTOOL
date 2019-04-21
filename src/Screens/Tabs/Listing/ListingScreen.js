@@ -31,6 +31,8 @@ class ListingScreen extends React.Component {
       return(
         <View>
           <Text>Loading Data...</Text>
+          <Button title = 'new listing' onPress={() => this.props.navigation.navigate('NewListing')}></Button>
+
         </View>
       );
     else
@@ -61,7 +63,9 @@ class ListingScreen extends React.Component {
                 );
               })
             } 
-            <Button title = 'new listing' onPress={() => this.props.navigation.navigate('NewListing')}></Button>
+            <TouchableOpacity style ={styles.newListing} onPress={() => this.props.navigation.navigate('NewListing')}>
+            <Text style = {styles.newListingText}> New Listing</Text>
+            </TouchableOpacity>
           </View>
         </View>
      );
