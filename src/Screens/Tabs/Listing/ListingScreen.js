@@ -4,7 +4,8 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity } from 'react-native';
+  TouchableOpacity,
+  ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { connect } from 'react-redux';
 import { Card } from 'react-native-elements';
@@ -29,10 +30,11 @@ class ListingScreen extends React.Component {
 
     if(this.props.items.length == 0)
       return(
-        <View>
-          <Text>Loading Data...</Text>
-          <Button title = 'new listing' onPress={() => this.props.navigation.navigate('NewListing')}></Button>
-
+        <View style={{ flex: 1, padding: 20 }}>
+          <ActivityIndicator/>
+          <TouchableOpacity style ={styles.newListing} onPress={() => this.props.navigation.navigate('NewListing')}>
+            <Text style = {styles.newListingText}> New Listing</Text>
+            </TouchableOpacity>
         </View>
       );
     else

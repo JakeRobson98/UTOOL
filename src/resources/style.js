@@ -15,11 +15,17 @@ module.exports = StyleSheet.create({
       },
       textInput: {
         height: 40,
-        width: '90%',
         borderColor: 'gray',
-        borderWidth: 1,
+        borderBottomWidth: 1,
         marginTop: 8,
-        color: '#26547C'
+        marginBottom: 10,
+        color: '#26547C',
+      },
+      cardContainer: {
+        alignItems: 'center',
+        borderWidth: 1,
+        borderRadius: 10,
+        width: "93%"
       },
       button: {
         paddingTop: 10

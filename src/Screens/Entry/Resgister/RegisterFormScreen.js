@@ -5,6 +5,7 @@ var styles = require('../../../resources/style');
 import { register } from './Actions';
 import { connect } from 'react-redux';
 import DateTimePicker from 'react-native-modal-datetime-picker';
+import { Card }  from 'react-native-elements'
 import { TextInput } from 'react-native-gesture-handler';
 
 class Register extends React.Component {
@@ -12,12 +13,12 @@ class Register extends React.Component {
         firstName: '',
         lastName: '',
         dateOfBirth: "01-01-1930",
-        email:'',
-        password:'',
+        email: '',
+        password: '',
         errorMessage: null,
         isLoading: true,
-        titleText: 'Congratulations',
-        bodyText: 'We just some need personal information...'
+        titleText: 'Congratulations!',
+        bodyText: 'We just need a bit more personal information ...'
     }
     handleSignup = () => {
         const { email, password } = this.state
@@ -58,33 +59,40 @@ class Register extends React.Component {
         }
         return (
             <View style={styles.container}>
-                
-                <TextInput
-                    style={styles.textInput}
-                    autoCapitalize="none"
-                    selectionColor={'#26547C'}
-                    placeholderTextColor={'#26547C'}
-                    placeholder="First name"
-                    onChangeText={firstName => this.setState({ firstName })}
-                    value={this.state.firstName}>
-                </TextInput>
-                <TextInput
-                    style={styles.textInput}
-                    autoCapitalize="none"
-                    selectionColor={'#26547C'}
-                    placeholderTextColor={'#26547C'}
-                    placeholder="Last name"
-                    onChangeText={lastName => this.setState({ lastName })}
-                    value={this.state.lastName}>
-                </TextInput>
-                <Button onPress={this._showDateTimePicker} title = "choose date of birth">
-                </Button>
-                <DateTimePicker
-                    isVisible={this.state.isDateTimePickerVisible}
-                    onConfirm={this._handleDatePicked}
-                    onCancel={this._hideDateTimePicker}
-                />
-                <Button style={styles.button} color={'#26547C'} title="continue" onPress={this.handleSignup} />
+                <Card containerStyle = {styles.cardContainer}>
+                <Text style={styles.titleText}>
+                        {this.state.titleText}
+                    </Text>
+                    <Text style={styles.bodyText}>
+                        {this.state.bodyText}{'\n'}
+                    </Text>
+                    <TextInput
+                        style={styles.textInput}
+                        autoCapitalize="none"
+                        selectionColor={'#26547C'}
+                        placeholderTextColor={'#26547C'}
+                        placeholder="First name"
+                        onChangeText={firstName => this.setState({ firstName })}
+                        value={this.state.firstName}>
+                    </TextInput>
+                    <TextInput
+                        style={styles.textInput}
+                        autoCapitalize="none"
+                        selectionColor={'#26547C'}
+                        placeholderTextColor={'#26547C'}
+                        placeholder="Last name"
+                        onChangeText={lastName => this.setState({ lastName })}
+                        value={this.state.lastName}>
+                    </TextInput>
+                    <Button onPress={this._showDateTimePicker} title="choose date of birth">
+                    </Button>
+                    <DateTimePicker
+                        isVisible={this.state.isDateTimePickerVisible}
+                        onConfirm={this._handleDatePicked}
+                        onCancel={this._hideDateTimePicker}
+                    />
+                    <Button style={styles.button} color={'#26547C'} title="continue" onPress={this.handleSignup} />
+                </Card>
             </View>
         );
     }
