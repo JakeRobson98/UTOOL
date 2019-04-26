@@ -3,10 +3,10 @@ require('dotenv').config()
 const express     = require('express');
 var session       = require("express-session");
 
-var PORT          = process.env.PORT || 8080;
+var PORT                    = process.env.PORT || 8080;
 
 const bodyParser  = require('body-parser');
-var jwt           = require('jsonwebtoken');
+var jwt                          = require('jsonwebtoken');
 var router        = express.Router();
 
 const app         = express();
@@ -79,7 +79,10 @@ app.use(passport.session());
 // });
 
 var main_routes = require('./routes/main_routes.js');
+var secure_routes = require('./routes/secure_routes.js');
+
 app.use('/main', main_routes);
+app.use('/secure', passport.authenticate('jwt', {session: false}), secure_routes);
 
 app.get('/status', (req, res) => res.send('Working!'));
 

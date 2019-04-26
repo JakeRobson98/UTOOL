@@ -2,8 +2,8 @@ var passport      = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 
 var passportJWT   = require("passport-jwt");
-var JWTStrategy   = passportJWT.Strategy;
-var ExtractJWT    = passportJWT.ExtractJwt;
+const JWTStrategy   = passportJWT.Strategy;
+const ExtractJWT = passportJWT.ExtractJwt;
 
 var db            = require("../models");
 
@@ -61,12 +61,11 @@ passport.use('localLogin',
 
 
 
-passport.use(new JWTStrategy({
-  secretOrKey : 'top_secret',
-  jwtFromRequest : ExtractJWT.fromUrlQueryParameter('secret_token')
+passport.use('jwt', new JWTStrategy({
+  jwtFromRequest : ExtractJWT.fromUrlQueryParameter('secret_token'),
+  secretOrKey : 'top_secret'
 }, async (token, done) => {
   try {
-    console.log(jwtFromRequest);
     return done(null, token.user);
   } catch (error) {
     done(error);
@@ -80,5 +79,15 @@ passport.serializeUser(function(user, cb){
 passport.deserializeUser(function(obj, cb) {
   cb(null, obj);
 });
+
+// passport.serializeUser(function(user, done) {
+//   done(null, user.id);
+// });
+
+// passport.deserializeUser(function(id, done) {
+// db.user.findById(id).then(user => {
+//   done(null, user);
+// });
+// });
 
 module.exports = passport;
