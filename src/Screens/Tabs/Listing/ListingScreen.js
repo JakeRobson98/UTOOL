@@ -21,6 +21,7 @@ class ListingScreen extends React.Component {
   componentDidMount() {
     console.log(this.props)
     this.props.getUseritems(1);
+
   }
 
   _handleCardPressed = () => {
@@ -30,7 +31,6 @@ class ListingScreen extends React.Component {
   render() {
 
     console.log('Listing Screen items:');
-    console.log(this.props.items[0]);
 
     if (this.props.items.length == 0)
       return (

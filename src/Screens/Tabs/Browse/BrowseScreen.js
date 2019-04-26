@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
   ActivityIndicator
 } from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
 import { connect } from 'react-redux';
 import { fetchItems } from './Actions'
 import { Card, SearchBar } from 'react-native-elements';
+// import { Ionicons } from '@expo/vector-icons'
 
 import styles from './style.js';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -40,25 +40,39 @@ class BrowseScreen extends React.Component {
     else
       return (
         <View style={styles.container}>
-        <View style={{ flex: 1, marginBottom: 0}}>
-           <SearchBar
-              round = {true}
-              lightTheme = {true}/>
-               <View style={styles.buttonGroup}>
-                <TouchableOpacity>
-                   <Text>Categories</Text>
+          <View>
+            <SearchBar
+              round={true}
+              lightTheme={true} />
+            <View style={styles.buttonGroup}>
+                <TouchableOpacity style={styles.toolbarOpacity}>
+                  <Image
+                    source={require("../../../resources/categories.png")}
+                    style={{ width: 30, height: 30, tintColor: 'black' }}>
+                  </Image>
+                  <Text style = {styles.subHeading} >Categories</Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
-                   <Text>Location</Text>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                   <Text>Refine</Text>
-                </TouchableOpacity>
-              </View>
 
-        </View>
-       
-          <ScrollView style={styles.contentContainer}>            
+              <TouchableOpacity style={styles.toolbarOpacity}>
+                <Image
+                  source={require("../../../resources/location.png")}
+                  style={{ width: 30, height: 30, tintColor: 'black' }}>
+                </Image>
+                <Text style = {styles.subHeading}>Location</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.toolbarOpacity}>
+                <Image
+                  source={require("../../../resources/refine.png")}
+                  style={{ width: 30, height: 30, tintColor: 'black' }}>
+                </Image>
+                <Text style = {styles.subHeading}>Refine</Text>
+              </TouchableOpacity>
+            </View>
+
+          </View>
+
+          <ScrollView style={styles.contentContainer}>
             {
               this.props.items[0].map((u, i) => {
                 console.log('ITEM');
@@ -83,6 +97,7 @@ class BrowseScreen extends React.Component {
               <Text style={styles.newListingText}> New Listing</Text>
             </TouchableOpacity>
           </ScrollView>
+
         </View>
       );
   }

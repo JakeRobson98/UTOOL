@@ -1,7 +1,7 @@
 import React from 'react'
 import {  ActivityIndicator, Button, TextInput, Text, View } from 'react-native';
 import { Card } from 'react-native-elements';
-import { getUser } from './Actions';
+import { getUser, loginUser } from './Actions';
 import { connect } from 'react-redux';
 
 var styles = require('../../../resources/style');

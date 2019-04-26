@@ -28,6 +28,7 @@ export const loginUser = (user) => {
   });
 }
 
+
 export const postItemApi = (item) => {
   console.log(item)
   return axios.post(`${API_ENDPOINT}/main/items`, item).then(function (response) {

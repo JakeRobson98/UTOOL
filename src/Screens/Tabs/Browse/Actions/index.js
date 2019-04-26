@@ -3,13 +3,13 @@ import {
   FETCH_ITEM_SUCCESS,
   FETCH_ITEM_FAILURE,
 } from './types';
-import {getItems} from '../../../../api/index'
+import { getItems } from '../../../../api/index'
 
 export const fetchItemSuccess = (payload) => {
-return {
-  type: FETCH_ITEM_SUCCESS,
-  payload
-};
+  return {
+    type: FETCH_ITEM_SUCCESS,
+    payload
+  };
 }
 
 
@@ -31,7 +31,7 @@ export const fetchItems = () => {
   console.log('calling fetch method!');
   return dispatch => {
     dispatch(fetchItemRequest());
-     return getItems()
+    return getItems()
       .then(res => {
         console.log(res);
         dispatch(fetchItemSuccess(res));

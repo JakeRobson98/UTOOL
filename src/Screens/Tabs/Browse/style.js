@@ -20,13 +20,20 @@ module.exports = StyleSheet.create({
  headerContainer: {
   flex: 1.5,
   marginTop: -70,
-  flexDirection: 'row',
+  flexDirection: 'column',
   justifyContent: 'space-between'
+ },
+ toolbarOpacity:{
+  flex: 1,
+  justifyContent: 'center',
+  alignItems: 'center',
+  marginBottom: 20,
  },
  buttonGroup: {
   flex: 1,
-  marginTop: 4,
   flexDirection: 'row',
+  marginTop: 25,
+  marginBottom: 80,
   justifyContent: 'space-evenly',
  },
  contentContainer: {
