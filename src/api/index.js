@@ -20,6 +20,7 @@ export const loginUser = (user) => {
   console.log(user)
   console.log(`${API_ENDPOINT}/main/login/${user}/`)
   return axios.post(`${API_ENDPOINT}/main/login`, user).then(function (response) {
+    console.log(response)
     return response.data;
   })
   .catch(function (error) {
@@ -38,9 +39,9 @@ export const postItemApi = (item) => {
   });
 }
 
-export const getItems = (item) => {
-  console.log(item)
-  return axios.get(`${API_ENDPOINT}/main/items`, item).then(function (response) {
+export const getItems = () => {
+  console.log()
+  return axios.get(`${API_ENDPOINT}/main/items`).then(function (response) {
     console.log(response)
     return response.data;
   })

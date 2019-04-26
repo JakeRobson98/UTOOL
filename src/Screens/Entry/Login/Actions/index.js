@@ -38,7 +38,7 @@ export const getUser = (email) => {
      return loginUser(email)
       .then(res => {
         console.log(res);
-        dispatch(fetchUserSuccess(res.token));
+        dispatch(fetchUserSuccess(res));
       })
       .catch(err => {
         console.log(err);

@@ -58,10 +58,11 @@ export const MessagingScreenStack = createStackNavigator({
 });
 
 export const bottomNavBar = createBottomTabNavigator({
+	Messaging: { screen: MessagingScreenStack },
 	Browse: { screen: BrowseStack},
-	Profile: { screen: ProfileScreenStack },
 	Listing: { screen: ListingScreenStack },
-	Messaging: { screen: MessagingScreenStack }
+	Profile: { screen: ProfileScreenStack },
+
 });
 
 

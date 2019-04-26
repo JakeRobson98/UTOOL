@@ -1,21 +1,25 @@
 import React from 'react'
-import { 
-  Button, 
+import {
+  Button,
   Text,
   View,
   Image,
+  FlatList,
   TouchableOpacity,
-  ActivityIndicator } from 'react-native';
+  ActivityIndicator
+} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { connect } from 'react-redux';
 import { Card } from 'react-native-elements';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import { getUseritems } from './Actions'
 import styles from './style.js';
 
 class ListingScreen extends React.Component {
-  
+
   componentDidMount() {
+    console.log(this.props)
     this.props.getUseritems(1);
   }
 
@@ -28,32 +32,30 @@ class ListingScreen extends React.Component {
     console.log('Listing Screen items:');
     console.log(this.props.items[0]);
 
-    if(this.props.items.length == 0)
-      return(
+    if (this.props.items.length == 0)
+      return (
+       
         <View style={{ flex: 1, padding: 20 }}>
-          <ActivityIndicator/>
-          <TouchableOpacity style ={styles.newListing} onPress={() => this.props.navigation.navigate('NewListing')}>
-            <Text style = {styles.newListingText}> New Listing</Text>
-            </TouchableOpacity>
+          <ActivityIndicator />
+          <TouchableOpacity style={styles.newListing} onPress={() => this.props.navigation.navigate('NewListing')}>
+            <Text style={styles.newListingText}> New Listing</Text>
+          </TouchableOpacity>
         </View>
       );
     else
       return (
         <View style={styles.container}>
-          <View style={styles.headerContainer}>
+          <ScrollView style={styles.contentContainer}>
             <Text style={styles.header}>Listing</Text>
-            <TouchableOpacity style={styles.touchableAdd} onPress={() => this.props.navigation.navigate('NewListing')}><Icon name="plus" size={30} color="black"/></TouchableOpacity>
-          </View>
-          <View style={styles.contentContainer}>
             {
-              this.props.items[0].map((u,i) => {
+              this.props.items[0].map((u, i) => {
                 console.log('ITEM');
                 console.log(u.Title);
                 return (
                   <TouchableOpacity key={i} onPress={this._handleCardPressed}>
                     <Card containerStyle={styles.itemCard}>
                       <View style={styles.cardContainer}>
-                        <Image style={styles.thumbnailImg}source={{uri: 'https://images.lowes.ca/img/p400/13248/654102630094.jpg'}}/>
+                        <Image style={styles.thumbnailImg} source={{ uri: 'https://images.lowes.ca/img/p400/13248/654102630094.jpg' }} />
                         <View style={styles.cardContent}>
                           <Text>{u.Title}</Text>
                           <Text>{u.address}, Auckland</Text>
@@ -64,14 +66,14 @@ class ListingScreen extends React.Component {
                   </TouchableOpacity>
                 );
               })
-            } 
-            <TouchableOpacity style ={styles.newListing} onPress={() => this.props.navigation.navigate('NewListing')}>
-            <Text style = {styles.newListingText}> New Listing</Text>
+            }
+            <TouchableOpacity style={styles.newListing} onPress={() => this.props.navigation.navigate('NewListing')}>
+              <Text style={styles.newListingText}> New Listing</Text>
             </TouchableOpacity>
-          </View>
+          </ScrollView>
         </View>
-     );
-   }
+      );
+  }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -82,7 +84,8 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    items: state.listing.mylistings
+    items: state.listing.mylistings,
+    user: state.login.user
   }
 }
 

@@ -3,9 +3,7 @@ import {
   FETCH_ITEM_SUCCESS,
   FETCH_ITEM_FAILURE,
 } from './types';
-import getItems from '../../../../api/index'
-import LoginReducer from '../Reducers/LoginReducer';
-import { fetchUserRequest } from '../../../Entry/Login/Actions';
+import {getItems} from '../../../../api/index'
 
 export const fetchItemSuccess = (payload) => {
 return {
@@ -32,11 +30,11 @@ export const fetchItemFailure = (payload) => {
 export const fetchItems = () => {
   console.log('calling fetch method!');
   return dispatch => {
-    dispatch(fetchUserRequest());
+    dispatch(fetchItemRequest());
      return getItems()
       .then(res => {
         console.log(res);
-        dispatch(fetchItemSuccess(res.token));
+        dispatch(fetchItemSuccess(res));
       })
       .catch(err => {
         console.log(err);
