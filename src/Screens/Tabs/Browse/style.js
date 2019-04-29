@@ -27,7 +27,6 @@ module.exports = StyleSheet.create({
   flex: 1,
   justifyContent: 'center',
   alignItems: 'center',
-  marginBottom: 20,
  },
  buttonGroup: {
   flex: 1,

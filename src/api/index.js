@@ -60,3 +60,14 @@ export const getItems2 = (ownerId) => {
     console.log(err);
   })
 }
+
+export const getUserData = (jwt) => {
+  console.log(jwt)
+  return axios.get(`${API_ENDPOINT}/secure/userInfo?secret_token=${jwt}`).then(function(res) {
+    console.log(res.data)
+    return res.data;
+
+  }).catch(function(err){
+    return res.data
+  })
+}

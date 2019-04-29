@@ -1,16 +1,26 @@
-import React, { Component }    from 'react';
+import React from 'react';
 import { 
  View, 
  Button, 
  Text,
  FlatList,
  TouchableHighlight, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import { getUser }  from './Actions';
+
 import styles from './style.js';
 
-export default class Profile extends Component {
+class Profile extends React.Component {
 
  _handlePress() {
 
+ }
+
+ componentDidMount(){
+  console.log(this.props)
+  jwt = this.props.login.user.token;
+  console.log(jwt.token)
+  this.props.getUser(jwt.token);
  }
 
  _handleButtonPress() {
@@ -36,4 +46,18 @@ export default class Profile extends Component {
  }
 
 }
+const mapDispatchToProps = dispatch => {
+  return {
+    getUser: (jwt) => dispatch(getUser(jwt))
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    login: state.login
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Profile);
 

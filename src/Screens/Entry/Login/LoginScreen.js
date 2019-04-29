@@ -17,8 +17,8 @@ class Login extends React.Component {
     handleLogin = () => {
         const { email, password } = this.state
         this.props.getUser({ username: email, password: password });
-        console.log(email + password)
         this.props.navigation.navigate('Dashboard')
+        
     }
     componentDidMount() {
         this.setState({ isLoading: false });
