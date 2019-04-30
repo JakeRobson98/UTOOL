@@ -35,6 +35,7 @@ export const postItem = (item) => {
 }
 
 export const getUseritems = (ownerId) => {
+  console.log(ownerId)
   console.log('Fetching user items from database');
   return dispatch => {
     dispatch(fetchUserItems());

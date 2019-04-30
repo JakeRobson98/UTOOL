@@ -4,6 +4,7 @@ import {
  Button, 
  Text,
  FlatList,
+ ActivityIndicator,
  TouchableHighlight, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { getUser }  from './Actions';
@@ -19,7 +20,6 @@ class Profile extends React.Component {
  componentDidMount(){
   console.log(this.props)
   jwt = this.props.login.user.token;
-  console.log(jwt.token)
   this.props.getUser(jwt.token);
  }
 
@@ -27,24 +27,31 @@ class Profile extends React.Component {
  }
 
  render(){
-  return (
-   <View style={styles.container}>
-    <Text style={styles.header}>Taylor</Text>
-    <Text style={styles.subHeading}>View and edit profile</Text>
-    {/* <Button onPress={() => this.props.navigation.navigate('Profile2')} title="Signup!"></Button> */}
-    <FlatList
-     style={styles.list} 
-     data={[
-      {key: 'Details', affiliate: 'My' }, 
-      {key: 'Settings'},
-      {key: 'Contact Us'},
-      {key: 'Help'},
-      {key: 'Log out'}]}
-     renderItem={({item}) => <TouchableOpacity onPress={() => this.props.navigation.navigate(item.key)}><Text style={styles.selections}>{item.affiliate} {item.key}</Text></TouchableOpacity>}/>
-   </View>
-  );
- }
-
+   if(this.props.user == undefined){
+     return <View>
+       <Text style={styles.header}>Browse</Text>
+          <ActivityIndicator />
+     </View>
+   }
+   else{
+    return (
+      <View style={styles.container}>
+       <Text style={styles.header}>{this.props.user.firstName}</Text>
+       <Text style={styles.subHeading}>View and edit profile</Text>
+       <Button onPress={() => console.log(this.props)} title="Signup!"></Button>
+       <FlatList
+        style={styles.list} 
+        data={[
+         {key: 'Details', affiliate: 'My' }, 
+         {key: 'Settings'},
+         {key: 'Contact Us'},
+         {key: 'Help'},
+         {key: 'Log out'}]}
+        renderItem={({item}) => <TouchableOpacity onPress={() => this.props.navigation.navigate(item.key)}><Text style={styles.selections}>{item.affiliate} {item.key}</Text></TouchableOpacity>}/>
+      </View>
+     );
+    }
+   }
 }
 const mapDispatchToProps = dispatch => {
   return {
@@ -54,7 +61,7 @@ const mapDispatchToProps = dispatch => {
 
 const mapStateToProps = state => {
   return {
-    user: state.user,
+    user: state.user.user.user,
     login: state.login
   }
 }

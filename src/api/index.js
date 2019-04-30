@@ -52,7 +52,7 @@ export const getItems = () => {
 }
 
 export const getItems2 = (ownerId) => {
-  return axios.get(`${API_ENDPOINT}/main/userItems`, { params: {ownerId: 1}}).then(function(res) {
+  return axios.get(`${API_ENDPOINT}/main/userItems`, { params: {ownerId}}).then(function(res) {
     console.log('Get Items 2 api indx');
     console.log(res);
     return res.data;
@@ -63,6 +63,7 @@ export const getItems2 = (ownerId) => {
 
 export const getUserData = (jwt) => {
   console.log(jwt)
+  console.log({API_ENDPOINT}+"/secure/userInfo?secret_token=$" +{jwt})
   return axios.get(`${API_ENDPOINT}/secure/userInfo?secret_token=${jwt}`).then(function(res) {
     console.log(res.data)
     return res.data;

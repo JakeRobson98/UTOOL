@@ -15,8 +15,11 @@ class NewListingScreen extends React.Component {
     price: 0,
     isLoading: true,
     errorMessage: null,
+    ownerId: 0
   }
   componentDidMount(){
+    this.state.ownerId = this.props.navigation.getParam('ownerId');
+    console.log(this.state)
     this.setState({isLoading : false});
  }
   submitNewItem = () => {
@@ -25,7 +28,8 @@ class NewListingScreen extends React.Component {
       Title: this.state.Title,
       Description: this.state.Description,
       address: this.state.address,
-      price: this.state.price
+      price: this.state.price,
+      ownerId : this.state.ownerId
     });
     alert("Added item!");
   }

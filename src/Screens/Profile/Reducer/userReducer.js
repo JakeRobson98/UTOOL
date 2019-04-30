@@ -17,10 +17,10 @@ export default (state = INITIAL_STATE, action) => {
 
         case types.FETCH_USER_DATA_SUCCESS:
             console.log('Fetch ITEM success');
-            console.log(action.payload);
+            console.log(action)
             return {
                 ...state,
-                user: [...state.user, action.payload],
+                user: {...state.user, user: action.user},
                 isFetching: false
             };
             break;

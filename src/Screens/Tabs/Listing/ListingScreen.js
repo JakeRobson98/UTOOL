@@ -20,7 +20,7 @@ class ListingScreen extends React.Component {
 
   componentDidMount() {
     console.log(this.props)
-    this.props.getUseritems(1);
+    this.props.getUseritems(this.props.user.id);
 
   }
 
@@ -67,7 +67,7 @@ class ListingScreen extends React.Component {
                 );
               })
             }
-            <TouchableOpacity style={styles.newListing} onPress={() => this.props.navigation.navigate('NewListing')}>
+            <TouchableOpacity style={styles.newListing} onPress={() => this.props.navigation.navigate('NewListing', {ownerId: this.props.user.id})}>
               <Text style={styles.newListingText}> New Listing</Text>
             </TouchableOpacity>
           </ScrollView>
@@ -85,7 +85,7 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     items: state.listing.mylistings,
-    user: state.login.user
+    user: state.user.user.user,
   }
 }
 
