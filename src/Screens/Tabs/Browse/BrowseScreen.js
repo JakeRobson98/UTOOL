@@ -21,7 +21,7 @@ class BrowseScreen extends React.Component {
 
   componentDidMount() {
     this.props.fetchItems();
-    console.log(this.props)
+    // console.log(this.props)
   }
   _handleCardPressed = () => {
     console.log('Card pressed on Listing Screen!');

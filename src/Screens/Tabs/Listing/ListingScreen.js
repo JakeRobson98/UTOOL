@@ -18,10 +18,20 @@ import styles from './style.js';
 
 class ListingScreen extends React.Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasFetched: false
+    }
+  }
+
   componentDidMount() {
+    
+    if(this.props.user !== undefined){
     console.log(this.props)
     this.props.getUseritems(this.props.user.id);
-
+    this.setState({ hasFetched: true });
+    } 
   }
 
   _handleCardPressed = () => {
@@ -32,7 +42,7 @@ class ListingScreen extends React.Component {
 
     console.log('Listing Screen items:');
 
-    if (this.props.items.length == 0)
+    if (this.props.items.length == 0 || this.props.user == undefined)
       return (
        
         <View style={{ flex: 1, padding: 20 }}>
@@ -49,8 +59,6 @@ class ListingScreen extends React.Component {
             <Text style={styles.header}>Listing</Text>
             {
               this.props.items[0].map((u, i) => {
-                console.log('ITEM');
-                console.log(u.Title);
                 return (
                   <TouchableOpacity key={i} onPress={this._handleCardPressed}>
                     <Card containerStyle={styles.itemCard}>
@@ -85,7 +93,8 @@ const mapDispatchToProps = dispatch => {
 const mapStateToProps = state => {
   return {
     items: state.listing.mylistings,
-    user: state.user.user.user,
+    user: state.user.user,
+    isFetching:  state.user.isFetching
   }
 }
 

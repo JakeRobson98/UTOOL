@@ -28,17 +28,18 @@ class Profile extends React.Component {
 
  render(){
    if(this.props.user == undefined){
-     return <View>
-       <Text style={styles.header}>Browse</Text>
+     return (
+     <View>
+       <Text style={styles.header}>Profile</Text>
+       <Button onPress={() => console.log(this.props)} title="Signup or sign in"></Button>
           <ActivityIndicator />
-     </View>
+       </View>);
    }
    else{
     return (
       <View style={styles.container}>
        <Text style={styles.header}>{this.props.user.firstName}</Text>
        <Text style={styles.subHeading}>View and edit profile</Text>
-       <Button onPress={() => console.log(this.props)} title="Signup!"></Button>
        <FlatList
         style={styles.list} 
         data={[
@@ -60,6 +61,8 @@ const mapDispatchToProps = dispatch => {
 }
 
 const mapStateToProps = state => {
+  console.log('Map state to props profile page');
+  console.log(state.user);
   return {
     user: state.user.user.user,
     login: state.login

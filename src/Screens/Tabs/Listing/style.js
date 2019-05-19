@@ -8,7 +8,6 @@ module.exports = StyleSheet.create({
  container: {
   flex: 1,
   marginLeft: 10,
-  marginTop: 80,
   marginRight: 10
  },
  containerNewListing: {
